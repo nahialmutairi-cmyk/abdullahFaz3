@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Amiri", Georgia, serif;
+  --font-sans: "Cairo", "Tajawal", system-ui, sans-serif;
+  
+  --color-luxury-bg: #0A0A0E;
+  --color-luxury-gold: #C9A84C;
+  --color-luxury-gold-glow: #E8C86A;
+  --color-luxury-silver: #8B9099;
+  --color-luxury-white: #F4F4F0;
+  --color-luxury-card: #12121A;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E8C86A;
+}
+
+/* Ambient animations */
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.4), 0 0 40px rgba(201, 168, 76, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(232, 200, 106, 0.7), 0 0 60px rgba(232, 200, 106, 0.3);
+  }
+}
+
+.animate-gold-pulse {
+  animation: goldPulse 3.5s infinite ease-in-out;
+}
+
+@keyframes underlineWidth {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-underline-draw {
+  animation: underlineWidth 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 2.5s infinite ease-in-out;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* CSS reset / utility enhancements */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-luxury-bg);
+  color: var(--color-luxury-white);
+  overflow-x: hidden;
+}
+
+/* Reveal transition helpers if needed */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
